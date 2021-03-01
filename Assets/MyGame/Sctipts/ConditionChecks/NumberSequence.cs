@@ -25,18 +25,21 @@ public class NumberSequence : MonoBehaviour
                 if (num >= keyCodes.Length)
                 {
                     SequenceStatus(true);
+                    StopAllCoroutines();
                     break;
                 }
 
                 NextCoroutine();
             }
 
-            for(int i = 0; i < num - 1; i++)
+            //If the numbers aren't pressed in the correct order -> restart
+            for (int i = 0; i < num - 1; i++)
             {
                 if (Input.GetKeyDown(keyCodes[i]))
                 {
-                    yield return 1;
                     num = 0;
+                    yield return 1;
+
                     NextCoroutine();
                 }
             }

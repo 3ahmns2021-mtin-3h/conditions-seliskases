@@ -63,7 +63,7 @@ public class Equation : MonoBehaviour
         for(int i = 0; i < values.Length; i++)
         {
             values[i] = Random.Range(2, 250);
-        }
+        }   
 
         correctAnswer = (values[2] - values[1]) / values[0];
         return values[0] + " * x + " + values[1] + " = " + values[2];
