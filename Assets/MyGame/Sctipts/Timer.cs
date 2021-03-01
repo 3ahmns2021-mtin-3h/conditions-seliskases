@@ -4,23 +4,39 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    //private void Update()
-    //{
-    //    if (Input.GetKey(KeyCode.Space))
-    //    {
-    //        time += Time.deltaTime;
-    //    }
+    private float time;
 
-    //    if (Input.GetKeyUp(KeyCode.Space))
-    //    {
-    //        time = 0;
-    //    }
+    private void Update()
+    {
+        if (buttonPressed)
+        {
+            return;
+        }
 
-    //    if (time < 3)
-    //    {
-    //        return false;
-    //    }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            time += Time.deltaTime;
+        }
 
-    //    return true;
-    //}
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            time = 0;
+        }
+
+        if (time > 3)
+        {
+            TimeStatus(true);
+            return;
+        }
+
+        TimeStatus(false);
+    }
+
+    #region TimeSingleton
+    private void TimeStatus(bool status)
+    {
+        buttonPressed = status;
+    }
+    public static bool buttonPressed;
+    #endregion
 }

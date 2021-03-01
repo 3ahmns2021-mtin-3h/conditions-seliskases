@@ -7,7 +7,8 @@ public class Manager : MonoBehaviour
 {
     public void Update()
     {
-        if (Equation.answerCorrect)
+        if ((Equation.answerCorrect && Timer.buttonPressed)||(Timer.buttonPressed && NumberSequence.sequenceDone)
+            ||(NumberSequence.sequenceDone))
         {
             Debug.Log("true");
         }
