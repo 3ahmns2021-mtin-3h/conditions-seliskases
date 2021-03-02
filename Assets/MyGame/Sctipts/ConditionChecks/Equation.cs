@@ -7,6 +7,7 @@ public class Equation : MonoBehaviour
 {
     public TextMeshProUGUI equationText;
     public TMP_InputField answerField;
+    public GameObject checkbox;
     public double tolerance;
     public bool debugAnswers;
 
@@ -53,7 +54,7 @@ public class Equation : MonoBehaviour
                 return;
             }
         }
-        Debug.Log("rejected");
+
         AnswerStatus(false);
     }    
 
@@ -90,6 +91,7 @@ public class Equation : MonoBehaviour
     #region CorrectAnswerSingleton
     private void AnswerStatus(bool status)
     {
+        checkbox.SetActive(status);
         answerCorrect = status;
     }
     public static bool answerCorrect;

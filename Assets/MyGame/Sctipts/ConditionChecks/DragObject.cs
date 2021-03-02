@@ -5,6 +5,7 @@ using UnityEngine;
 public class DragObject : MonoBehaviour
 {
     public GameObject dragObject;
+    public GameObject checkbox;
     public float distanceMargin;
 
     private Vector3 startPosition;
@@ -18,7 +19,6 @@ public class DragObject : MonoBehaviour
     {
         if (Vector3.Distance(dragObject.transform.position, startPosition) > distanceMargin)
         {
-            print("1");
             MovedStatus(true);
         }
     }
@@ -26,6 +26,7 @@ public class DragObject : MonoBehaviour
     #region
     private void MovedStatus(bool status)
     {
+        checkbox.SetActive(status);
         movedStatus = status;
     }
     public static bool movedStatus;

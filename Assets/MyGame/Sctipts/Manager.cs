@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
@@ -10,11 +10,6 @@ public class Manager : MonoBehaviour
 
     public Color trueColor;
     public Color falseColor;
-
-    private void Start()
-    {
-        
-    }
 
     public void Update()
     {
@@ -27,5 +22,10 @@ public class Manager : MonoBehaviour
         {
             statusImage.color = falseColor;
         }
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

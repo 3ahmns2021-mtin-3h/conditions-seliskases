@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class NumberSequence : MonoBehaviour
 {
     public KeyCode[] keyCodes;
+    public TextMeshProUGUI numberField;
+    public GameObject checkbox;
 
     public int num = 0;
 
@@ -13,6 +16,14 @@ public class NumberSequence : MonoBehaviour
     private void Start()
     {
         currentCoroutine = StartCoroutine(KeyListener(keyCodes[num]));
+    }
+
+    private void Update()
+    {
+        if (!sequenceDone)
+        {
+            numberField.text = (num + 1).ToString();
+        }
     }
 
     private IEnumerator KeyListener(KeyCode keyCode)
@@ -57,6 +68,7 @@ public class NumberSequence : MonoBehaviour
     #region
     private void SequenceStatus(bool status)
     {
+        checkbox.SetActive(true);
         sequenceDone = status;
     }
     public static bool sequenceDone;
