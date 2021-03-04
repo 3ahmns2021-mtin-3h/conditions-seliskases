@@ -15,6 +15,7 @@ public class NumberSequence : MonoBehaviour
 
     private void Start()
     {
+        SequenceStatus(false);
         currentCoroutine = StartCoroutine(KeyListener(keyCodes[num]));
     }
 
@@ -30,6 +31,11 @@ public class NumberSequence : MonoBehaviour
     {
         while (true)
         {
+            if (Equation.inputFieldSelected)
+            {
+                yield return null;
+            }
+
             if (Input.GetKeyDown(keyCode))
             {
                 num++;
@@ -65,12 +71,10 @@ public class NumberSequence : MonoBehaviour
         currentCoroutine = StartCoroutine(KeyListener(keyCodes[num]));
     }
 
-    #region
     private void SequenceStatus(bool status)
     {
-        checkbox.SetActive(true);
+        checkbox.SetActive(status);
         sequenceDone = status;
     }
-    public static bool sequenceDone;
-    #endregion
+    public static bool sequenceDone = false;
 }

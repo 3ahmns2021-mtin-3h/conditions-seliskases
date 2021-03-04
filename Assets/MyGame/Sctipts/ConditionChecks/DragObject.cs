@@ -13,6 +13,7 @@ public class DragObject : MonoBehaviour
     private void Start()
     {
         startPosition = dragObject.transform.position;
+        MovedStatus(false);
     }
 
     private void Update()
@@ -23,12 +24,10 @@ public class DragObject : MonoBehaviour
         }
     }
 
-    #region
     private void MovedStatus(bool status)
     {
         checkbox.SetActive(status);
         movedStatus = status;
     }
-    public static bool movedStatus;
-    #endregion
+    public static bool movedStatus = false;
 }

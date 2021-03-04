@@ -10,12 +10,14 @@ public class Equation : MonoBehaviour
     public GameObject checkbox;
     public double tolerance;
     public bool debugAnswers;
+    public static bool inputFieldSelected;
 
     private double correctAnswer;
 
     public void Start()
     {
         CreateEquation();
+        AnswerStatus(false);
     }
 
     public void CreateEquation()
@@ -88,12 +90,20 @@ public class Equation : MonoBehaviour
         //Solution: x = a * b * c
     }
 
-    #region CorrectAnswerSingleton
+    public void OnSelectInputField()
+    {
+        inputFieldSelected = true;
+    }
+
+    public void OnDeselectInputField()
+    {
+        inputFieldSelected = false;
+    }
+
     private void AnswerStatus(bool status)
     {
         checkbox.SetActive(status);
         answerCorrect = status;
     }
-    public static bool answerCorrect;
-    #endregion
+    public static bool answerCorrect = false;
 }

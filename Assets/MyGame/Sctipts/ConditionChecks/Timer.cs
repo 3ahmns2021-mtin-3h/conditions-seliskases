@@ -9,7 +9,12 @@ public class Timer : MonoBehaviour
     public GameObject checkbox;
     public float maxTime = 3;
 
-    private float time;
+    private float time = 0;
+
+    private void Start()
+    {
+        TimeStatus(false);
+    }
 
     private void Update()
     {
@@ -39,12 +44,10 @@ public class Timer : MonoBehaviour
         TimeStatus(false);
     }
 
-    #region TimeSingleton
     private void TimeStatus(bool status)
     {
         checkbox.SetActive(status);
         buttonPressed = status;
     }
-    public static bool buttonPressed;
-    #endregion
+    public static bool buttonPressed = false;
 }
