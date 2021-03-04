@@ -25,7 +25,7 @@ public class Timer : MonoBehaviour
             return;
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space)  && !Equation.inputFieldSelected)
         {
             time += Time.deltaTime;
         }

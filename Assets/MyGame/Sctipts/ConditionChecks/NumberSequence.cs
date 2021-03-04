@@ -9,8 +9,7 @@ public class NumberSequence : MonoBehaviour
     public TextMeshProUGUI numberField;
     public GameObject checkbox;
 
-    public int num = 0;
-
+    private int num = 0;
     private Coroutine currentCoroutine = null;
 
     private void Start()
