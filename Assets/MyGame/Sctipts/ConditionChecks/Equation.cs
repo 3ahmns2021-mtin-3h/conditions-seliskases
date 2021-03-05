@@ -62,7 +62,7 @@ public class Equation : MonoBehaviour
 
     public string PatternOne()
     {
-        float[] values = new float[3];
+        double[] values = new double[3];
         for(int i = 0; i < values.Length; i++)
         {
             values[i] = Random.Range(2, 250);
@@ -77,7 +77,7 @@ public class Equation : MonoBehaviour
 
     public string PatternTwo()
     {
-        float[] values = new float[3];
+        double[] values = new double[3];
         for(int i = 0; i < values.Length; i++)
         {
             values[i] = Random.Range(2, 20);

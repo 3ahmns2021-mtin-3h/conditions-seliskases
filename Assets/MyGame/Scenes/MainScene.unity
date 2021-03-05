@@ -1555,7 +1555,7 @@ MonoBehaviour:
   equationText: {fileID: 181597227}
   answerField: {fileID: 657729208}
   checkbox: {fileID: 507541892}
-  tolerance: 0.5
+  tolerance: 0.1
   debugAnswers: 1
 --- !u!114 &778202717
 MonoBehaviour:
@@ -1572,10 +1572,6 @@ MonoBehaviour:
   statusImage: {fileID: 900283444}
   trueColor: {r: 0.2444452, g: 1, b: 0, a: 1}
   falseColor: {r: 1, g: 0, b: 0, a: 1}
-  answerCorrectDebug: 0
-  buttonPressedDebug: 0
-  sequenceDoneDebug: 0
-  movedStatusDebug: 0
 --- !u!4 &778202718
 Transform:
   m_ObjectHideFlags: 0
