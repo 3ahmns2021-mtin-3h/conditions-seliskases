@@ -6,6 +6,7 @@ using TMPro;
 public class NumberSequence : MonoBehaviour
 {
     public KeyCode[] keyCodes;
+
     public TextMeshProUGUI numberField;
     public GameObject checkbox;
 
@@ -35,6 +36,21 @@ public class NumberSequence : MonoBehaviour
                 yield return null;
             }
 
+            //If the numbers aren't pressed in the correct order -> restart
+            for (int i = 0; i < keyCodes.Length; i++)
+            {
+                if (i != num)
+                {
+                    if (Input.GetKeyDown(keyCodes[i]))
+                    {
+                        num = 0;
+                        yield return null;
+
+                        NextCoroutine();
+                    }
+                }
+            }
+
             if (Input.GetKeyDown(keyCode))
             {
                 num++;
@@ -45,19 +61,8 @@ public class NumberSequence : MonoBehaviour
                     break;
                 }
 
+                yield return null;
                 NextCoroutine();
-            }
-
-            //If the numbers aren't pressed in the correct order -> restart
-            for (int i = 0; i < num - 1; i++)
-            {
-                if (Input.GetKeyDown(keyCodes[i]))
-                {
-                    num = 0;
-                    yield return 1;
-
-                    NextCoroutine();
-                }
             }
 
             yield return null;
